@@ -11,7 +11,7 @@
 #include "esp_lcd_panel_ops.h"
 #include "esp_lcd_panel_vendor.h"
 #include "driver/gpio.h"
-#include "product_pins.h"
+#include "product_pins.h"    
 #include "esp_log.h"
 #include "esp_idf_version.h"
 #include "driver/spi_master.h"

@@ -46,6 +46,15 @@ lcd_cmd_t lcd_st7789v[] = {
     {0xE1, {0XF0, 0X08, 0X0C, 0X0B, 0X09, 0X24, 0X2B, 0X22, 0X43, 0X38, 0X15, 0X16, 0X2F, 0X37}, 14},
 };
 
+/*void lv_print_hello(){
+	lv_obj_set_style_b_color(lv_screen_active(), lv_color_hex(0x003a57, LV_PART_MAIN);
+	lv_obj_t *label = lv_label_crete(lv_screen_active());
+	lv_label_set_text(label, "Hello, Java);
+	lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xffffff), LV_PART_MAIN);
+	lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
+}
+
+*/
 void display_push_colors(uint16_t x, uint16_t y, uint16_t width, uint16_t hight, uint16_t *data)
 {
     esp_lcd_panel_draw_bitmap(panel_handle, x, y, width, hight, data);
@@ -124,10 +133,10 @@ void display_init()
 
     esp_lcd_panel_invert_color(panel_handle, true);
 
-    esp_lcd_panel_swap_xy(panel_handle, true);
+    esp_lcd_panel_swap_xy(panel_handle, false);
 
     //The screen faces you, and the USB is on the left
-    esp_lcd_panel_mirror(panel_handle, false, true);
+    esp_lcd_panel_mirror(panel_handle, true, true);
 
     //The screen faces you, the USB is to the right
     // esp_lcd_panel_mirror(panel_handle, true, false);

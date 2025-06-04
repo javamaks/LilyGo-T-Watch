@@ -29,9 +29,9 @@ static esp_lcd_panel_io_handle_t io_handle = NULL;
 static esp_lcd_panel_handle_t panel_handle = NULL;
 extern lv_disp_drv_t disp_drv;
 
-void display_push_colors(uint16_t x, uint16_t y, uint16_t width, uint16_t hight, uint16_t *data)
+void display_push_colors(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t *data)
 {
-    esp_lcd_panel_draw_bitmap(panel_handle, x, y, width, hight, data);
+    esp_lcd_panel_draw_bitmap(panel_handle, x1, y1, x2, y2, data);
 }
 
 bool display_notify_lvgl_flush_ready(esp_lcd_panel_io_handle_t panel_io, esp_lcd_panel_io_event_data_t *edata, void *user_ctx)
@@ -79,9 +79,9 @@ void display_init()
     ESP_ERROR_CHECK(esp_lcd_new_panel_st7789(io_handle, &panel_config, &panel_handle));
     ESP_ERROR_CHECK(esp_lcd_panel_reset(panel_handle));
     ESP_ERROR_CHECK(esp_lcd_panel_init(panel_handle));
-    ESP_ERROR_CHECK(esp_lcd_panel_invert_color(panel_handle, true));
+    ESP_ERROR_CHECK(esp_lcd_panel_invert_color(panel_handle, false));
     esp_lcd_panel_swap_xy(panel_handle, false);
-    ESP_ERROR_CHECK(esp_lcd_panel_mirror(panel_handle, true, false));
+    ESP_ERROR_CHECK(esp_lcd_panel_mirror(panel_handle, true, true));
     esp_lcd_panel_set_gap(panel_handle, 0, 0);
     ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(panel_handle, true));
 

@@ -88,6 +88,13 @@ bool touch_init()
 
     board_hmi_touch_init();
 
+#elif defined(CONFIG_LILYGO_T_WATCH_S3)
+    touch.setSwapXY(true);
+    //touch.setMirrorXY(true, false);
+	touch.setMirrorXY(true, true);
+    touch.disableAutoSleep();
+
+
 #elif defined(CONFIG_LILYGO_T_RGB)
 
     board_rgb_touch_init();
@@ -118,8 +125,8 @@ bool touch_init()
     touch.disableAutoSleep();
 #elif defined(CONFIG_LILYGO_T_QT_C6)
     touch.setMirrorXY(false, true);
-#endif
 
+#endif 
 
 
 

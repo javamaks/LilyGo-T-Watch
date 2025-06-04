@@ -13,4 +13,8 @@ idf_component_register(SRCS
     "display_hmi.c"
     "display_rgb.cpp"
     "display_watch_s3.c"
+    "full_battery.c"
+    "rtc_driver.c"
+    "pcf8563.c"
+    "touch.c"
     INCLUDE_DIRS ".")

@@ -14,7 +14,9 @@ menu "LilyGo Display Product Configuration"
 
         config LILYGO_T_DISPLAY_S3_AMOLED_TOUCH
             bool "T-Display S3 AMOLED 1.91 Inch with Touch"
-
+		config BOARD_HAS_TOUCH
+			bool "Enable touch screen"
+			default y
         config LILYGO_T4_S3_241
             bool "T4 S3 AMOLED 2.41 Inch with Touch"
 
